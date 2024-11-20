@@ -1,0 +1,77 @@
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    text-align: center;
+    background-color: #eef2f3;
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    background-color: #1e90ff;
+    color: white;
+    padding: 20px 0;
+    font-size: 32px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+
+main {
+    margin: 40px auto;
+    max-width: 900px;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgb(37, 50, 104);
+    box-shadow: 0 8px 16px rgba(109, 83, 83, 0.2);
+}
+
+
+.meme-container {
+    margin: 20px 0;
+    position: relative;
+}
+
+img {
+    max-width: 150%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.subreddit {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #666;
+}
+
+
+.button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(45deg, #1e90ff, #00bfff);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background: linear-gradient(45deg, #00bfff, #1e90ff);
+    transform: scale(1.05);
+}
+
+
+footer {
+    margin-top: 40px;
+    font-size: 14px;
+    color: #888;
+}
