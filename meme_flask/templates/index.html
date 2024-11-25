@@ -1,7 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meme Generator</title>
+    <title>Crazy Meme Generator</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
+<body>
+    <header>
+        Crazy Meme Generator 🚀
+    </header>
+    <main>
+        <div class="meme-container">
+            <img src="{{ meme_pic }}" alt="Meme Image">
+            <p class="subreddit">✨ From subreddit: {{ subreddit }} ✨</p>
+        </div>
+        <a href="/" class="button">🎉 Generate Another Meme! 🎉</a>
+    </main>
+    <footer>
+        <p>© 2024 Crazy Meme Generator. All rights reserved. 💥</p>
+        <p>Built with ❤️ and memes.</p>
+    </footer>
+</body>
+</html>
+
+
+
    
