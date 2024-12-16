@@ -3,26 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crazy Meme Generator</title>
+    <title>Crazy Meme Generator 🚀</title>
+    <!-- Link to CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <header>
-        Crazy Meme Generator 🚀
-    </header>
+
+    <!-- Main Content -->
     <main>
-        <div class="meme-container">
-            <img src="{{ meme_pic }}" alt="Meme Image">
-            <p class="subreddit">✨ From subreddit: {{ subreddit }} ✨</p>
+       
+        <div class="toggle-container">
+           
+            <label class="switch">
+                <input type="checkbox" id="dark-mode-switch">
+                <span class="slider"></span>
+        
         </div>
-        <a href="/" class="button">🎉 Generate Another Meme! 🎉</a>
+        
+       
+        <div class="container">
+            
+            <!-- Meme Display -->
+            <div class="meme-container">
+                <p id="chosen-category" style="font-size: 18px; font-weight: bold;">Category: {{ category or 'All Categories' }}</p>
+                <img src="{{ meme_pic }}" alt="Funny Meme Image" id="meme-image" class="meme-image" style="max-width: 100%; height: auto; max-height: 500px; display: block; margin: 0 auto;">
+                <p class="subreddit">✨ From: {{ subreddit }} ✨</p>
+
+                <form action="/" method="get">
+                    {% if category %}
+                        <input type="hidden" name="category" value="{{ category }}">
+                    {% endif %}
+                    <button type="submit" class="button">🎉 Generate Another Meme! 🎉</button>
+                </form>
+
+            </div>
+
+
+            <div class="category-container">
+                <select id="category" class="button" onchange="filterCategory()">
+                    <option value="" disabled {% if category is none %}selected{% endif %}>Select a category</option>
+                    <option value="cats" {% if category == 'cats' %}selected{% endif %}>Cats</option>
+                    <option value="racism" {% if category == 'racism' %}selected{% endif %}>Racism</option>
+                    <option value="shitposts" {% if category == 'shitposts' %}selected{% endif %}>Shitposts</option>
+                    <option value="dogs" {% if category == 'dogs' %}selected{% endif %}>Dogs</option>
+                </select>
+            </div>          
+ 
+            
+            <!-- Rating System -->
+            <div class="rating-container">
+                <p class="rating-title">Rate this meme:</p>
+                <div class="stars" role="radiogroup" aria-labelledby="rating-title">
+                    <span class="star" data-value="1" aria-label="Rate 1 star">★</span>
+                    <span class="star" data-value="2" aria-label="Rate 2 stars">★</span>
+                    <span class="star" data-value="3" aria-label="Rate 3 stars">★</span>
+                    <span class="star" data-value="4" aria-label="Rate 4 stars">★</span>
+                    <span class="star" data-value="5" aria-label="Rate 5 stars">★</span>
+                </div>
+                <p class="rating-feedback">Your Rating: <span id="rating-result">0</span> / 5</p>
+            </div>
+
+            <!-- Share Buttons -->
+            <div class="share-buttons">
+                <div>Share this meme:</div>
+                
+                <!-- Facebook Share Button -->
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ full_image_url }}" class="button" target="_blank">
+                    📘 Facebook
+                </a>
+                
+                <!-- Twitter Share Button -->
+                <a href="https://twitter.com/intent/tweet?text=Check%20out%20this%20meme:%20{{ full_image_url | urlencode }}" class="button" target="_blank">
+                    🐦 Twitter
+                </a>
+                
+                <!-- WhatsApp Share Button -->
+                <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20meme%20{{ full_image_url | urlencode }}" class="button" target="_blank">
+                    💬 WhatsApp
+                </a>
+                
+                <!-- Download Meme Button -->
+                <a href="{{ full_image_url }}" class="button" download id="download-btn">
+                    💾 Download Meme
+                </a>
+               
+            </div>
+            
+        </div>
     </main>
-    <footer>
-        <p>© 2024 Crazy Meme Generator. All rights reserved to amit levy. 💥</p>
-        <p>Built with ❤️ and memes.</p>
-    </footer>
+
+    <!-- Link to JS -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
+
+
+
+
+
+
 
 
 
