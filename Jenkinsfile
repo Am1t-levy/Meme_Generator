@@ -9,13 +9,22 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo 'Building the project'
+                script {
+                    // Build Docker image
+                    sh 'docker build -t meme_generator .'
+
+                    echo 'Building the project completed'
+                }
             }
         }
         stage('Deploy') {
             steps {
+                // Deploy Docker container
+                sh 'docker run -d -p 5000:5000 meme_generator'
+
                 echo 'Deploying the project'
             }
         }
     }
 }
+
