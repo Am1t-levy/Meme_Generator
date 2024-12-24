@@ -1,10 +1,10 @@
+version: '3'
 services:
   meme_generator:
-    image: meme_generator
+    image: amit947/meme_gen:v5
     ports:
       - "5000:5000"
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:5000"]
-      interval: 30s
-      retries: 3
+    environment:
+      - FLASK_APP=meme_flask/meme_flask.py
+
 
