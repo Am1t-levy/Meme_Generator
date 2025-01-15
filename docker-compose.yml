@@ -1,9 +1,11 @@
-version: '3'
 services:
   meme_generator:
-    build: .
+    image: amit947/meme_gen:v5
     ports:
       - "5000:5000"
     environment:
-      FLASK_APP: meme_flask/meme_flask.py
-    command: flask run --host=0.0.0.0 --port=5000
+      - FLASK_APP=meme_flask/meme_flask.py
+    restart: always
+
+
+

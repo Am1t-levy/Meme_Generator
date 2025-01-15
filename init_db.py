@@ -2,8 +2,7 @@ import sqlite3
 import os
 
 # Path to the memes folder
-memes_folder = "static/memes"
-
+memes_folder = "meme_flask/static/memes"
 # Connect to SQLite database (it will create the database if it doesn't exist)
 conn = sqlite3.connect("meme_database.db")
 cursor = conn.cursor()
