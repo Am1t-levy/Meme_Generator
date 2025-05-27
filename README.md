@@ -1,4 +1,4 @@
-# Meme Generator 🎨😂
+# Meme Generator 🎨
 
 A Flask-based web app that allows users to generate and view memes. It also supports automated deployment using Docker, Docker Compose, and Jenkins CI/CD.
 
